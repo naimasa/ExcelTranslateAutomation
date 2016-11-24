@@ -12,9 +12,9 @@
 #   - UI Automation PowerShell Extensions (https://uiautomation.codeplex.com/)
 #
 # Usage (on PowerShell prompt):
-#   ExcelTranslate.ps1 {cnt}
+#   ExcelTranslateAutomation.ps1 {cnt}
 #   {cnt}: Count for repetition
-#   * Before running script, activate 'çZâ{' tab and cell to be translated on the Excel window.
+#   * Before running script, activate 'Ê†°Èñ≤' tab and cell to be translated on the Excel window.
 #
 ################################################################################
 
@@ -31,7 +31,7 @@ $wshell = New-Object -ComObject wscript.shell;
 1..$cnt | foreach {
 
     # Translate active cell.
-    $transBtn = $form | Get-UiaCustom -Class 'NetUIOrderedGroup' -Name 'çZâ{' | Get-UiaGroup -Class 'NetUIChunk' -Name 'åæåÍ' | Get-UiaButton -Class 'NetUIRibbonButton' -Name 'ñ|ñÛ'
+    $transBtn = $form | Get-UiaCustom -Class 'NetUIOrderedGroup' -Name 'Ê†°Èñ≤' | Get-UiaGroup -Class 'NetUIChunk' -Name 'Ë®ÄË™û' | Get-UiaButton -Class 'NetUIRibbonButton' -Name 'ÁøªË®≥'
     $transBtn | Invoke-UiaButtonClick
     
     # Re-activate Excel window to update translation pain.
@@ -43,7 +43,7 @@ $wshell = New-Object -ComObject wscript.shell;
     Sleep 3
     
     # Replace cell value with translated one.
-    $insBtn = $form | Get-UiaGroup -Class 'NetUIGroupBox' -Name 'ñ|ñÛ' | Get-UiaButton -Class 'NetUISplitDropdown' -Name 'ë}ì¸(I)' | Get-UiaButton -Class 'NetUISplitDropdownButton' -Name 'ë}ì¸(I)'
+    $insBtn = $form | Get-UiaGroup -Class 'NetUIGroupBox' -Name 'ÁøªË®≥' | Get-UiaButton -Class 'NetUISplitDropdown' -Name 'ÊåøÂÖ•(I)' | Get-UiaButton -Class 'NetUISplitDropdownButton' -Name 'ÊåøÂÖ•(I)'
     $insBtn | Invoke-UiaButtonClick
 
     # Move to next cell.
